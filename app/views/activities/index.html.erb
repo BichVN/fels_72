@@ -1,0 +1,9 @@
+<h1><%= t "activity_log" %></h1>
+<% @activities.each do |activity| %>
+  <strong><%= activity.user.name %></strong>
+  <i><%= activity.type_activity%></i>
+  <% if activity.target_id? %>
+    <i><%= User.find(activity.target_id).name %></i>
+  <% end %>
+  <br>
+<% end %>
