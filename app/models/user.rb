@@ -1,5 +1,9 @@
 class User < ActiveRecord::Base
+  include ActivityLog
+
   before_save {email.downcase!}
+  after_create :create_new_user_activity
+  after_update :update_profile_activity
 
   has_many :activities
   has_many :lessons
@@ -29,5 +33,14 @@ class User < ActiveRecord::Base
 
   def following? other_user
     following.include? other_user
+  end
+
+  private
+  def create_new_user_activity
+    record_activity self, self.id, nil, "create account"
+  end
+ 
+  def update_profile_activity
+    record_activity self, self.id, nil, "update profile"
   end
 end

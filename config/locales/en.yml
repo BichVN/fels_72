@@ -1,5 +1,6 @@
 en:
   logo: "E-learning System "
+  create: "Create"
   confirm: "Are you sure?"
   account_submit: "Create my account"
   signup_title: "Sign up"
@@ -18,7 +19,7 @@ en:
   logout: "Log out"
   account: "Account"
   new_user: "New user?"
-  profile_update: "Profile updated"
+  update: "Update"
   login_warning: "Please log in."
   follow: "Follow"
   unfollow: "Unfollow"
@@ -51,3 +52,4 @@ en:
       correct3: "Correct3"
       answer4: "Answer4"
       correct4: "Correct4"
+  activity_log: "Activities Log"
