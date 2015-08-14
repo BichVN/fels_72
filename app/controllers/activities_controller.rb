@@ -1,6 +1,5 @@
 class ActivitiesController < ApplicationController
   def index
-    @activities = current_user.activities.paginate page: params[:page],
-      per_page: 30
+    @activities = Activity.activity_log current_user.follower_ids, current_user.id
   end
 end
