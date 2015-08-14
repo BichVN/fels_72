@@ -35,6 +35,13 @@ class User < ActiveRecord::Base
     following.include? other_user
   end
 
+  def activity_log
+    following_ids = "SELECT followed_id FROM relationships
+      WHERE  follower_id = :user_id"
+    Activity.where("user_id IN (#{following_ids})
+      OR user_id = :user_id", user_id: id)
+  end
+
   private
   def create_new_user_activity
     record_activity self, self.id, nil, "create account"
